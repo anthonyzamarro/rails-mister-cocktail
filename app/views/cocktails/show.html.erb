@@ -4,7 +4,7 @@
   <% @cocktail.doses.each do |dose|  %>
     <li>
       <!-- <p><%= link_to dose.description, dose_path %></p> -->
-      <h3>Description of Dose</h3>
+      <h3>Dose Details</h3>
 
         <% @cocktail.doses.each do |dose| %>
         <p><%= dose.description %></p>
@@ -16,5 +16,6 @@
 </ul>
 
 <button> <%= link_to "Add dose", new_cocktail_dose_path(@cocktail)  %></button>
+<button> <%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete  %></button>
 
 <button> <%= link_to "Back to cocktails", root_path %></button>
