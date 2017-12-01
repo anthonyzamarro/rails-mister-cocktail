@@ -21,6 +21,7 @@ result.each do |ingredients|
     i = ingredient["strIngredient1"]
     ing = Ingredient.new(name: i)
     ing.save
+    p ing
   end
 end
 
