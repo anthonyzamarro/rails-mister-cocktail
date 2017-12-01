@@ -1,21 +1,31 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+  <h1><%= @cocktail.name %></h1>
+    <h3>Ingredients</h3>
+    <ul>
+      <% @cocktail.doses.each do |dose|  %>
+        <li>
+          <p>
+          <%= "#{dose.description} of #{dose.ingredient.name}" %> <br><%= link_to "Delete dose", dose_path(dose), method: :delete  %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
 
-<ul>
-  <% @cocktail.doses.each do |dose|  %>
-    <li>
-      <!-- <p><%= link_to dose.description, dose_path %></p> -->
-      <h3>Dose Details</h3>
+    <h1>Create Dose</h1>
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description %>
+        <%= f.input :ingredient_id, collection: @ingredients - @cocktail.ingredients %>
 
-        <% @cocktail.doses.each do |dose| %>
-        <p><%= dose.description %></p>
-        <p><%= dose.ingredient.name %></p>
-        <% end %>
-      <button class="btn btn-danger"> <%= link_to "Delete dose", dose_path(dose), method: :delete  %></button>
-    </li>
-  <% end %>
-</ul>
+        <%= f.submit "add dose", class: "btn btn-primary" %>
+    <% end %>
 
-<button> <%= link_to "Add dose", new_cocktail_dose_path(@cocktail)  %></button>
-<button> <%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete  %></button>
+    <br>
 
-<button> <%= link_to "Back to cocktails", root_path %></button>
+    <button><%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete %></button>
+
+    <button><%= link_to "Back to cocktails", root_path %></button>
+    </div>
+  </div>
+</div>
