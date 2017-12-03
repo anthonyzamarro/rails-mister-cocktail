@@ -1,0 +1,29 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+  <div class="banner-content">
+    <h1>Cocktail Lounge</h1>
+    <p>World's Best Cocktails</p>
+    <!-- <a class="btn btn-primary btn-lg">Create a cocktail</a> -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newCocktailForm">
+      Create Cocktail
+    </button>
+  </div>
+</div>
+
+<div class="modal fade" id="newCocktailForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-center" id="exampleModalLabel">Create Cocktail</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>

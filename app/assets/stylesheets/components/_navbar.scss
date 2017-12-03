@@ -11,8 +11,12 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  width: 100px;
+  height: 70px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 /* User Avatar */
@@ -33,6 +37,7 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  margin-left: 10px;
 }
 
 /* Navbar link */

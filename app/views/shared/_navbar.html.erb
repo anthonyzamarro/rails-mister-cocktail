@@ -1,0 +1,51 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="#">
+  <%= image_tag("lex-guerra-258587.jpg", class: "navbar-wagon-brand", :alt => "logo" ) %>
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+  <%= link_to 'All Cocktails', root_path, { :class=>"navbar-wagon-item" } %>
+
+  <%= link_to 'Create Cocktail', '#', {"data-toggle" => "modal", 'data-target' => '#newCocktailForm', :class=>"navbar-wagon-item" } %>
+
+  <div class="modal fade" id="newCocktailForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title text-center" id="exampleModalLabel">Create Cocktail</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render 'form' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Profile picture with dropdown list -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to 'All Cocktails', root_path, { :class=>"navbar-wagon-item" } %></li>
+          <li><%= link_to 'Create Cocktail', '#', {"data-toggle" => "modal", 'data-target' => '#newCocktailForm', :class=>"navbar-wagon-item" } %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to 'All Cocktails', root_path, { :class=>"navbar-wagon-item" } %></li>
+        <li><%= link_to 'Create Cocktail', new_cocktail_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>

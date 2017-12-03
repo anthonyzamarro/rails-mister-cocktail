@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
+<div class="container new-container">
+  <div class="row text-center">
+    <div class="col-sm-12 new-item">
     <h1>Create Cocktail</h1>
       <%= simple_form_for @cocktail do |f| %>
         <%= f.input :name %>
-
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "add cocktail", class: "btn btn-primary" %>
     <% end %>
     </div>

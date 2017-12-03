@@ -1,37 +1,48 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-  <h1><%= @cocktail.name %></h1>
-    <h3>Ingredients</h3>
+<div class="container show">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+    <h1><%= @cocktail.name %></h1>
+    <%= cl_image_tag @cocktail.photo, width: 200, height: 300, crop: :fill %>
+  </div>
+
+    <div class="col-md-6 dose-form text-center">
+    <h2>Ingredients</h2>
     <ul>
       <% @cocktail.doses.each do |dose|  %>
         <li>
-          <p>
-          <%= "#{dose.description} of #{dose.ingredient.name}" %> <br><%= link_to "Delete dose", dose_path(dose), method: :delete  %>
-          </p>
+        <%= "#{dose.description} of #{dose.ingredient.name}" %> <br><%= link_to "Delete dose", dose_path(dose), method: :delete  %>
         </li>
       <% end %>
-    </ul>
-
-    <h1>Create Dose</h1>
-      <%= simple_form_for [@cocktail, @dose] do |f| %>
-        <%= f.input :description %>
-        <%= f.input :ingredient_id, collection: @ingredients - @cocktail.ingredients %>
-
-        <%= f.submit "add dose", class: "btn btn-primary" %>
-    <% end %>
-
+      </ul>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDoseForm">
+      Add Dose
+    </button>
+      <div class="modal fade" id="addDoseForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title text-center" id="exampleModalLabel">Create Cocktail</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for [@cocktail, @dose] do |f| %>
+              <%= f.input :description %>
+              <%= f.input :ingredient_id, collection: @ingredients - @cocktail.ingredients %>
+              <%= f.submit "add dose", class: "btn btn-primary" %>
+           <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
     <br>
 
-    <button><%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete %></button>
+    <div class="col-sm-12 options">
+      <button><%= link_to "Delete cocktail", cocktail_path(@cocktail), method: :delete %></button>
 
-    <button><%= link_to "Back to cocktails", root_path %></button>
+      <button><%= link_to "Back to cocktails", root_path %></button>
     </div>
   </div>
-  <!-- <div class="row"> -->
-    <!-- <div class="col-sm-6"> -->
-    <!-- </div> -->
-    <!-- <div class="col-sm-6"> -->
-    <!-- </div> -->
-  <!-- </div> -->
 </div>
