@@ -7,7 +7,7 @@
       <ul class="cocktail-list">
         <% @cocktails.each do |cocktail| %>
         <div class="col-sm-4 text-center">
-          <% link_to cocktail_path(cocktail) do %>
+          <%= link_to cocktail_path(cocktail) do %>
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, width: 200, height: 300, crop: :fill %>');">
               <div class="card-description">
                 <h2><%= cocktail.name %></h2>
